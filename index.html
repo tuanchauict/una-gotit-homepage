@@ -26,15 +26,15 @@
     <div class="site-wrapper">
         <div class="site-wrapper__inner">
             <header>
-                <li class="{{item.active ? 'active' : ''}}" u-for="item in tabs"><a u-click="active(item)">{{item.title}}</a>
+                <li class="{{index === activeTab ? 'active' : ''}}" u-for="index, item in tabs"><a u-click="active(index)">{{item.title}}</a>
                 </li>
             </header>
-            <home u-if="tabs[0].active"></home>
-            <kaas u-if="tabs[1].active"></kaas>
-            <solutions u-if="tabs[2].active"></solutions>
-            <about u-if="tabs[3].active"></about>
-            <team u-if="tabs[4].active"></team>
-            <experts u-if="tabs[5].active"></experts>
+            <home u-if="activeTab === 0"></home>
+            <kaas u-if="activeTab === 1"></kaas>
+            <solutions u-if="activeTab === 2"></solutions>
+            <about u-if="activeTab === 3"></about>
+            <team u-if="activeTab === 4"></team>
+            <experts u-if="activeTab === 5"></experts>
             <footer-component/>
         </div>
     </div>

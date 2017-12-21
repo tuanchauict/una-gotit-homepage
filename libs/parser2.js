@@ -67,6 +67,9 @@ function parseHtml(html) {
 
             me.isForNode = false;
             const context = contexts.local;
+            // console.log(context);
+
+            // console.log(data);
             for (let i = 0; i < data.length; i++) {
                 const localContext = {};
                 if (context) {
@@ -81,7 +84,11 @@ function parseHtml(html) {
                     localContext[keyIndex] = i;
                 }
                 contexts.local = localContext;
-                result.push(me.toDOM(nodes, parentPath + '-' + i, parentElement, contexts))
+                const newContexts = {};
+                Object.assign(newContexts, contexts);
+                newContexts.local = localContext;
+
+                result.push(me.toDOM(nodes, parentPath + '-' + i, parentElement, newContexts))
             }
             me.isForNode = true;
         };
@@ -175,8 +182,6 @@ function parseHtml(html) {
 
         const renderComponent = function (nodes, parentPath, parentElement, contexts) {
             // console.log('component', me.name, me);
-            const path = parentPath + me.name + me.id;
-            // console.log(path);
             // console.log(contexts);
             const componentContext = {data: {}, methods: {}};
             for (let k in me.properties){
@@ -189,7 +194,7 @@ function parseHtml(html) {
                 }
             }
 
-            Una.$components[me.name.toLocaleLowerCase()].toHTML(nodes, path, parentElement, {
+            Una.$components[me.name.toLocaleLowerCase()].toHTML(nodes, parentPath, parentElement, {
                 global: componentContext,
                 local: contexts.local,
                 children: {
@@ -273,5 +278,5 @@ function parseHtml(html) {
     };
 
 
-    return run(html.trim());
+    return run(html);
 }

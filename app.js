@@ -1,8 +1,9 @@
 const app = new Una({
     el: 'app',
     data: {
+        activeTab: 0,
         tabs: [
-            {title: 'Home', active: true},
+            {title: 'Home'},
             {title: 'KaaS Platform'},
             {title: 'Solutions'},
             {title: 'About'},
@@ -11,12 +12,9 @@ const app = new Una({
         ]
     },
     methods: {
-        active: function(item){
-            console.log(item);
-            for (let i = 0; i < this.tabs.length; i++) {
-                this.tabs[i].active = false;
-            }
-            item.active = true;
+        active: function(index){
+            this.activeTab = index;
+            console.log(this.activeTab);
         }
     }
 });
