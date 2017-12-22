@@ -39,7 +39,7 @@ Una.component('kaas', {
 <div class="page-wrapper page-gotit-kaas">
     <kaas-header></kaas-header>
     <kaas-benefits></kaas-benefits>
-    <div class="rec-purple bg-gray-lighter"><img src="./imgs/rec-purple.png"></div>
+    <rec-purple></rec-purple>
 
 </div>
 `

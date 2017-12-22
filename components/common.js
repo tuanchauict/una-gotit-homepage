@@ -5,6 +5,7 @@ Una.component('page-header', {
         <div class="row">
             <div class="{{leftcls}}">
                 <h1>{{title}}</h1>
+                <content></content>
                 <p class="visible-xs visible-sm m-b-30"><img src="{{image}}" width="100%"></p>
                 <p>{{description}}</p>
             </div>
@@ -39,4 +40,8 @@ Una.component('section-gray', {
     data: {
         cls: ''
     }
+});
+
+Una.component('rec-purple', {
+    template: `<div class="rec-purple bg-gray-lighter"><img src="./imgs/rec-purple.png"></div>`
 });
