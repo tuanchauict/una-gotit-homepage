@@ -16,7 +16,7 @@ Una.component('page-header', {
         </div>
     </div>
 </header>
-`,  props: ['title', 'description', 'image', 'leftcls', 'rightcls', 'headercls'],
+`, props: ['title', 'description', 'image', 'leftcls', 'rightcls', 'headercls'],
 });
 
 Una.component('section-white', {
@@ -24,7 +24,10 @@ Una.component('section-white', {
 <section class="section-gotit {{cls}} bg-white">
     <div class="container"><content></content></div>
 </section>
-`, props: ['cls']
+`, props: ['cls'],
+    data: {
+        cls: ''
+    }
 });
 
 Una.component('section-gray', {
@@ -32,5 +35,8 @@ Una.component('section-gray', {
 <section class="section-gotit {{cls}} bg-gray-lighter">
     <div class="container"><content></content></div>
 </section>    
-`, props: ['cls']
+`, props: ['cls'],
+    data: {
+        cls: ''
+    }
 });
