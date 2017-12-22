@@ -61,7 +61,14 @@ Una.component('footer-link', {
 Una.component('footer-links', {
     template: `
 <div class="row">
+    <div class="col-sm-3">
+        <div class="footer-link footer-link--social">
+            <a href="https://www.facebook.com/Got-It-Pro-765732513609152/" target="_blank"><img src="./imgs/ic_footer_fb@2x.png" alt="Facebook" width="8"></a>
+            <a href="https://twitter.com/got_it_co" target="_blank"><img src="./imgs/ic_footer_tw@2x.png" alt="Twitter" width="18"></a>
+        </div>
+    </div>
     <div class="col-sm-3" u-for="col in cols">
+        
         <ul class="list-unstyled" u-for="item in col">
             <footer-link u:title="{{item.title}}" u:url="{{item.url}}"></footer-link>
         </ul>

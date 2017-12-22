@@ -82,6 +82,8 @@ Una.component('team', {
 <div class="page-wrapper page-gotit-team">
     <team-header></team-header>
     <team-positions></team-positions>
+    <!--<div style="height:190px; background: url('imgs/connect-illustration@2x.png') center bottom no-repeat; background-size:100%;"></div>-->
+
 </div>
 `
 });
