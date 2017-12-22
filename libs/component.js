@@ -15,7 +15,6 @@ function Component(information) {
     }
 
     this.toHTML = function (nodes, parentPath, parentElement, contexts) {
-        // console.log(contexts);
         if (me.$data){
             let data = contexts.global.data;
             contexts.global.data = JSON.parse(JSON.stringify(me.$data));

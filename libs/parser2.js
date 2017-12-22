@@ -13,6 +13,7 @@ function parseHtml(html) {
         this.uAttributes = {};
         this.attributes = {};
         this.properties = {};
+        this.linkProperties = {};
 
         this.toDOM = function (nodes, parentPath, parentElement, contexts) {
             // console.log(parentElement);
@@ -192,16 +193,15 @@ function parseHtml(html) {
             // console.log('component', me.name, me);
             // console.log(contexts);
             const componentContext = {data: {}, methods: {}};
-            for (let k in me.properties){
+            for (let k in me.properties) {
                 let p = me.properties[k];
-
-                if (typeof p === 'function') {
-                    componentContext.method[k] = p;
-                }  else {
-                    componentContext.data[k] = evalText(p, contexts.global, contexts.local);
-                }
+                componentContext.data[k] = evalText(p, contexts.global, contexts.local);
             }
-            console.log(parentPath);
+            for (let k in me.linkProperties) {
+                let p = me.linkProperties[k];
+                componentContext.data[k] = evalContext(p, contexts.global, contexts.local);
+            }
+            // console.log(parentPath);
             Una.$components[me.name.toLocaleLowerCase()].toHTML(nodes, parentPath + me.id, parentElement, {
                 global: componentContext,
                 local: contexts.local,
@@ -222,7 +222,7 @@ function parseHtml(html) {
 
         };
 
-        const renderChildren = function(nodes, parentPath, parentElement, contexts, children) {
+        const renderChildren = function (nodes, parentPath, parentElement, contexts, children) {
             if (!children)
                 return;
             for (let i = 0; i < children.length; i++) {
@@ -262,7 +262,11 @@ function parseHtml(html) {
                     }
                 }
                 else if (name.startsWith('u:')) {
-                    node.properties[name.substr(2)] = attr.value;
+                    if (name.startsWith('u::')) {
+                        node.linkProperties[name.substr(3)] = attr.value;
+                    } else {
+                        node.properties[name.substr(2)] = attr.value;
+                    }
                 }
                 else {
                     node.attributes[name] = attr.value;
