@@ -14,6 +14,7 @@
 
     <script src="components/footer.js"></script>
     <script src="components/header.js"></script>
+    <script src="components/common.js"></script>
     <script src="pages/about.js"></script>
     <script src="pages/experts.js"></script>
     <script src="pages/home.js"></script>
@@ -25,10 +26,10 @@
 <div id="app">
     <div class="site-wrapper">
         <div class="site-wrapper__inner">
-            <header>
+            <page-nav-bar>
                 <li class="{{index === activeTab ? 'active' : ''}}" u-for="index, item in tabs"><a u-click="active(index)">{{item.title}}</a>
                 </li>
-            </header>
+            </page-nav-bar>
             <home u-if="activeTab === 0"></home>
             <kaas u-if="activeTab === 1"></kaas>
             <solutions u-if="activeTab === 2"></solutions>

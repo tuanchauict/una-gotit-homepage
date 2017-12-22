@@ -1,4 +1,4 @@
-Una.component('header', {
+Una.component('page-nav-bar', {
    template:`
 <nav class="navbar navbar--global navbar-fixed-top">
     <div class="container">

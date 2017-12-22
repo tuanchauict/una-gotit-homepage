@@ -17,7 +17,14 @@ function parseHtml(html) {
         this.toDOM = function (nodes, parentPath, parentElement, contexts) {
             // console.log(parentElement);
             if (this.isIfNode && !evalContext(this.ifNode, contexts.global, contexts.local)) {
-                const path = parentPath + this.id;
+                const path = (() => {
+                    const comp = Una.$components[me.name.toLocaleLowerCase()];
+                    if (comp) {
+                        return parentPath + this.id + comp.$tree.id;
+                    } else {
+                        return parentPath + this.id;
+                    }
+                })();
                 let node = nodes.get(path);
                 if (node) {
                     if (node.nodeType !== 8) {
@@ -35,6 +42,7 @@ function parseHtml(html) {
                 return renderFor(nodes, parentPath, parentElement, contexts);
             } else {
                 const path = parentPath + this.id;
+                // console.log(path);
 
                 if (this.type === TYPE_TEXT) {
                     renderText(nodes, path, parentElement, contexts);
@@ -193,8 +201,8 @@ function parseHtml(html) {
                     componentContext.data[k] = evalText(p, contexts.global, contexts.local);
                 }
             }
-
-            Una.$components[me.name.toLocaleLowerCase()].toHTML(nodes, parentPath, parentElement, {
+            console.log(parentPath);
+            Una.$components[me.name.toLocaleLowerCase()].toHTML(nodes, parentPath + me.id, parentElement, {
                 global: componentContext,
                 local: contexts.local,
                 children: {
@@ -253,7 +261,7 @@ function parseHtml(html) {
                         node.uAttributes[name] = attr.value;
                     }
                 }
-                if (name.startsWith('u:')) {
+                else if (name.startsWith('u:')) {
                     node.properties[name.substr(2)] = attr.value;
                 }
                 else {

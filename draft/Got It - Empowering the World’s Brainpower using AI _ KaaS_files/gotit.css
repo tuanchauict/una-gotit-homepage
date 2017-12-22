@@ -217,7 +217,7 @@ h4, .h4 {
     margin-top: 19px;
     padding: 0;
     text-indent: -999px;
-    background-image: url("https://www.got-it.co/images/logo-main@2x.png");
+    background-image: url("../images/logo-main@2x.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 112px;
@@ -257,7 +257,7 @@ h4, .h4 {
     .navbar--switch .page-name-ext:after {
       background-color: #fff; }
   .navbar--switch .navbar-brand {
-    background-image: url("../imgs/logo-main-white@2x.png"); }
+    background-image: url("../images/logo-main-white@2x.png"); }
   .navbar--switch .nav > li > a {
     color: #fff; }
     .navbar--switch .nav > li > a:hover {
@@ -307,7 +307,7 @@ h4, .h4 {
   margin: 0;
   height: auto; }
   .navbar-home .navbar-brand {
-    background-image: url("../imgs/logo@2x.png");
+    background-image: url("../images/logo@2x.png");
     width: 147px;
     height: 57px;
     margin: 0; }
@@ -610,7 +610,7 @@ body {
     left: 50%;
     margin-bottom: -55px;
     margin-left: -55px;
-    background-image: url("../imgs/see-more@2x.png");
+    background-image: url("../images/see-more@2x.png");
     background-size: 110px 110px;
     transform: scale(1);
     transition: 0.25s; }
@@ -717,7 +717,7 @@ body {
         height: auto; } }
 
 .section-why-kaas figure {
-  background: url("../imgs/people.png");
+  background: url("../images/corporate/people.png");
   padding: 15px; }
   .section-why-kaas figure img {
     width: 100%; }
