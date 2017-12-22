@@ -1,7 +1,7 @@
 const app = new Una({
     el: 'app',
     data: {
-        activeTab: 0,
+        activeTab: 2,
         tabs: [
             {title: 'Home'},
             {title: 'KaaS Platform'},

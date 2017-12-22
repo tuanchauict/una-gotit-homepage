@@ -1,15 +1,16 @@
 Una.component('page-header', {
     template: `
-<header class="page-cover bg-white headercls">
+<header class="page-cover bg-white {{headercls}}">
     <div class="container">
         <div class="row">
             <div class="{{leftcls}}">
                 <h1>{{title}}</h1>
+                <p class="visible-xs visible-sm m-b-30"><img src="{{image}}" width="100%"></p>
                 <p>{{description}}</p>
             </div>
             <div class="{{rightcls}}">
                 <div class="cover-image-wrapper">
-                    <img src="{{image}}" width="100%" class="cover-image"></img>
+                    <img src="{{image}}" width="100%" class="cover-image m-t-30">
                 </div>
             </div>
         </div>

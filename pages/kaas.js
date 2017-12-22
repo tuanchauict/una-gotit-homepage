@@ -2,8 +2,8 @@ Una.component('kaas-header', {
     template: `
 <page-header
     u:headercls="page-kaas-cover"
-    u:leftcls="col-md-6"
-    u:rightcls="col-md-6"
+    u:leftcls="col-md-6 left"
+    u:rightcls="col-md-6 right hidden-xs hidden-sm"
     u:title="The Got It KaaS Platform"
     u:description="While there are some specific expert-based services for specific topics, Got It KaaS is the first platform for all topics. An innovative AI algorithm called ExpertRank™, based on a combination of machine learning and human expertise, creates a real-time global auction for a user’s knowledge-based problem, matching the user with the most relevant expert available  within 30 seconds. The AI algorithm also audits every session and updates the ExpertRank™ based on real-time updates from an expert’s  knowledge-time sessions."
     u:image="imgs/kass-chart@2x.png"
