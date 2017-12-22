@@ -15,7 +15,7 @@ Una.component('page-header', {
         </div>
     </div>
 </header>
-`,  props: ['title', 'description', 'image', 'leftcls', 'rightcls', headercls]
+`,  props: ['title', 'description', 'image', 'leftcls', 'rightcls', 'headercls'],
 });
 
 Una.component('section-white', {
