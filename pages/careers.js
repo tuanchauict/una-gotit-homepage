@@ -38,6 +38,11 @@ Una.component('career-positions', {
     <div class="row row-flex">
         <career-position-group u-for="item in positions" u:title="{{item.title}}" u:color="{{item.color}}" u::positions="item.items"></career-position-group>
     </div>
+    <ul class="list-unstyled m-t-30">
+        <li>
+            <a href="team.html"><strong><u>Meet our team!</u></strong></a>
+        </li>
+    </ul>
 </section-gray>
 `, data: {
         positions: [
@@ -83,12 +88,65 @@ Una.component('career-positions', {
     }
 });
 
+Una.component('careers-life-item', {
+   template: `
+<div class="col-sm-3 {{offset}} m-t-20">
+    <img src="{{image}}" height="120" alt="">
+    <p class="text-primary m-t-30"><strong>{{title}}</strong></p>
+    <p class=" m-t-20">{{description}}</p>
+</div>
+`, props: ['image', 'title', 'description', 'offset'],
+    data: {
+       offset: 'col-sm-offset-1'
+    }
+});
+
+Una.component('careers-life', {
+    template: `
+<section-gray>
+    <div class="h4 section-heading">Life at Got It</div>
+    <div class="row">
+        <div class="col-md-7">
+            <p>At Got It, we know how to work hard and play hard. Join us for Napa trips, bocce ball, happy hours, and much more!</p>
+        </div>
+    </div>
+    <div class="row m-t-30 text-center">
+        <careers-life-item u-for="item in benefits" 
+            u:offset="{{item.offset}}"
+            u:image="{{item.image}}" 
+            u:title="{{item.title}}" 
+            u:description="{{item.description}}"></careers-life-item>
+    </div>
+</section-gray>
+`, data: {
+        benefits: [
+            {
+                offset: '',
+                image: 'imgs/icon-life-1@2x.png',
+                title: 'BENEFITS',
+                description: 'Got It offers customizable benefits. Pick the plans that are right for you: medical, dental, vision, commuter, FSA and HSA. Plus, enroll in our 401k program.'
+            },{
+                offset: 'col-sm-offset-1',
+                image: 'imgs/icon-life-3@2x.png',
+                title: 'FOOD & DRINKS',
+                description: 'Daily lunches, snacks galore, and monthly food excursions.'
+            },{
+                offset: 'col-sm-offset-1',
+                image: 'imgs/icon-life-4@2x.png',
+                title: 'OUTINGS',
+                description: 'Monthly team outings and special celebrations!'
+            },
+        ]
+    }
+});
 
 Una.component('careers', {
    template: `
 <div class="page-wrapper page-gotit-career">
     <careers-header></careers-header>
     <career-positions></career-positions>
+    <div class="career-photo"></div>
+    <careers-life></careers-life>
     <rec-purple></rec-purple>
 </div>
 `
